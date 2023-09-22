@@ -99,13 +99,10 @@
 		1A24EFAE2ABE3CAE00DDE9DA /* MiBand5 */ = {
 			isa = PBXGroup;
 			children = (
-				1A24EFAF2ABE3CAE00DDE9DA /* AppDelegate.swift */,
-				1A24EFB12ABE3CAE00DDE9DA /* SceneDelegate.swift */,
-				1A24EFB82ABE3CAF00DDE9DA /* Assets.xcassets */,
-				1A24EFBA2ABE3CAF00DDE9DA /* LaunchScreen.storyboard */,
-				1A24EFBD2ABE3CAF00DDE9DA /* Info.plist */,
-				1A24EFDF2ABE3DDC00DDE9DA /* MainViewController.swift */,
-				1A24EFE02ABE3DDC00DDE9DA /* MainViewController.xib */,
+				1A24EFE32ABE3F1A00DDE9DA /* App */,
+				1A24EFE42ABE3F2D00DDE9DA /* Modules */,
+				1A24EFE72ABE3F6A00DDE9DA /* Resources */,
+				1A24EFE62ABE3F4900DDE9DA /* Supporting files */,
 			);
 			path = MiBand5;
 			sourceTree = "<group>";
@@ -125,6 +122,49 @@
 				1A24EFD22ABE3CAF00DDE9DA /* MiBand5UITestsLaunchTests.swift */,
 			);
 			path = MiBand5UITests;
+			sourceTree = "<group>";
+		};
+		1A24EFE32ABE3F1A00DDE9DA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1A24EFAF2ABE3CAE00DDE9DA /* AppDelegate.swift */,
+				1A24EFB12ABE3CAE00DDE9DA /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1A24EFE42ABE3F2D00DDE9DA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1A24EFE52ABE3F3600DDE9DA /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		1A24EFE52ABE3F3600DDE9DA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1A24EFDF2ABE3DDC00DDE9DA /* MainViewController.swift */,
+				1A24EFE02ABE3DDC00DDE9DA /* MainViewController.xib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1A24EFE62ABE3F4900DDE9DA /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				1A24EFBD2ABE3CAF00DDE9DA /* Info.plist */,
+				1A24EFBA2ABE3CAF00DDE9DA /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		1A24EFE72ABE3F6A00DDE9DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A24EFB82ABE3CAF00DDE9DA /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,7 +471,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9WUS7ZBGW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MiBand5/Info.plist;
+				INFOPLIST_FILE = "MiBand5/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -460,7 +500,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9WUS7ZBGW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MiBand5/Info.plist;
+				INFOPLIST_FILE = "MiBand5/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

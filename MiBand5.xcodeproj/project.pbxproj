@@ -16,6 +16,9 @@
 		1A24EFD32ABE3CAF00DDE9DA /* MiBand5UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A24EFD22ABE3CAF00DDE9DA /* MiBand5UITestsLaunchTests.swift */; };
 		1A24EFE12ABE3DDC00DDE9DA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A24EFDF2ABE3DDC00DDE9DA /* MainViewController.swift */; };
 		1A24EFE22ABE3DDC00DDE9DA /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A24EFE02ABE3DDC00DDE9DA /* MainViewController.xib */; };
+		1A24EFEB2ABE401D00DDE9DA /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A24EFEA2ABE401D00DDE9DA /* BLEManager.swift */; };
+		1A24EFED2ABE402B00DDE9DA /* BLEManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A24EFEC2ABE402B00DDE9DA /* BLEManagerProtocol.swift */; };
+		1A24EFF22ABEF66400DDE9DA /* MiBand5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A24EFF12ABEF66400DDE9DA /* MiBand5.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		1A24EFD22ABE3CAF00DDE9DA /* MiBand5UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiBand5UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1A24EFDF2ABE3DDC00DDE9DA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1A24EFE02ABE3DDC00DDE9DA /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		1A24EFEA2ABE401D00DDE9DA /* BLEManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		1A24EFEC2ABE402B00DDE9DA /* BLEManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEManagerProtocol.swift; sourceTree = "<group>"; };
+		1A24EFF12ABEF66400DDE9DA /* MiBand5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiBand5.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,8 @@
 			children = (
 				1A24EFE32ABE3F1A00DDE9DA /* App */,
 				1A24EFE42ABE3F2D00DDE9DA /* Modules */,
+				1A24EFF02ABEF64800DDE9DA /* Models */,
+				1A24EFE82ABE3FF700DDE9DA /* Managers */,
 				1A24EFE72ABE3F6A00DDE9DA /* Resources */,
 				1A24EFE62ABE3F4900DDE9DA /* Supporting files */,
 			);
@@ -165,6 +173,31 @@
 				1A24EFB82ABE3CAF00DDE9DA /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1A24EFE82ABE3FF700DDE9DA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1A24EFE92ABE400100DDE9DA /* Bluetooth */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		1A24EFE92ABE400100DDE9DA /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				1A24EFEC2ABE402B00DDE9DA /* BLEManagerProtocol.swift */,
+				1A24EFEA2ABE401D00DDE9DA /* BLEManager.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		1A24EFF02ABEF64800DDE9DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A24EFF12ABEF66400DDE9DA /* MiBand5.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,7 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A24EFED2ABE402B00DDE9DA /* BLEManagerProtocol.swift in Sources */,
 				1A24EFE12ABE3DDC00DDE9DA /* MainViewController.swift in Sources */,
+				1A24EFF22ABEF66400DDE9DA /* MiBand5.swift in Sources */,
+				1A24EFEB2ABE401D00DDE9DA /* BLEManager.swift in Sources */,
 				1A24EFB02ABE3CAE00DDE9DA /* AppDelegate.swift in Sources */,
 				1A24EFB22ABE3CAE00DDE9DA /* SceneDelegate.swift in Sources */,
 			);

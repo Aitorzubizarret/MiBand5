@@ -43,7 +43,8 @@ extension BLEManager: BLEManagerProtocol {
                 print("BLEManager - startScanning \(connectedPeripherals.count) connected peripherals")
                 
                 for connectedPeripheral in connectedPeripherals {
-                    centralManager?.cancelPeripheralConnection(connectedPeripheral)
+                    //centralManager?.cancelPeripheralConnection(connectedPeripheral)
+                    searchServices(peripheral: connectedPeripheral)
                 }
                 
             } else {
@@ -52,6 +53,11 @@ extension BLEManager: BLEManagerProtocol {
             
             centralManager?.scanForPeripherals(withServices: [MiBand5.Services_UUID.device])
         }
+    }
+    
+    func searchServices(peripheral: CBPeripheral) {
+        print("BLEManager - searchServices")
+        peripherals.append(peripheral)
     }
     
 }
@@ -97,7 +103,6 @@ extension BLEManager: CBCentralManagerDelegate {
         
         centralManager?.connect(peripheral)
         peripherals.append(peripheral)
-        
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
@@ -122,12 +127,17 @@ extension BLEManager: CBPeripheralDelegate {
         guard let services = peripheral.services else { return }
         
         for service in services {
-//            print("BLEManager - CBPeripheralDelegate - service: \(service)")
-//            peripheral.discoverCharacteristics([], for: service)
-            
-            if service.uuid == MiBand5.Services_UUID.battery {
-                print("BLEManager - CBPeripheralDelegate - service: \(service)")
+            switch service.uuid {
+            case MiBand5.Services_UUID.device:
+                print("BLEManager - CBPeripheralDelegate - Device - service: \(service)")
                 peripheral.discoverCharacteristics([], for: service)
+                break
+            case MiBand5.Services_UUID.battery:
+                print("BLEManager - CBPeripheralDelegate - Battery - service: \(service)")
+                peripheral.discoverCharacteristics([], for: service)
+                break
+            default:
+                print("")
             }
         }
     }
@@ -141,6 +151,7 @@ extension BLEManager: CBPeripheralDelegate {
         
         // Characteristics
         guard let characteristics = service.characteristics else {
+            print("Aitor cancel connection didDiscoverCharacteristicsFor")
             centralManager?.cancelPeripheralConnection(peripheral)
             return
         }
@@ -155,21 +166,23 @@ extension BLEManager: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-        print("BLEManager - CBPeripheralDelegate - didUpdateValueFor")
+        guard let data = characteristic.value else { return }
         
-        guard let data = characteristic.value else {
-            centralManager?.cancelPeripheralConnection(peripheral)
-            return
-        }
-        
-        print("Characteristic UUID: \(characteristic.uuid)")
+//        BLEManager - CBPeripheralDelegate - didUpdateValueFor
+//        Characteristic UUID: 00000013-0000-3512-2118-0009AF100700
         
         switch characteristic.uuid {
+        case MiBand5.Characteristics_UUID.time:
+            MiBand5.timeCharacteristicDataHandler(data: data, peripheral: peripheral)
+            break
         case MiBand5.Characteristics_UUID.battery:
             MiBand5.batteryCharacteristicDataHandler(data: data, peripheral: peripheral)
+            break
         default:
-            print("Default")
+            print("")
         }
+        
+        //centralManager?.cancelPeripheralConnection(peripheral)
     }
     
     // MARK: - Notifications for Characteristic's value

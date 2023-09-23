@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import CoreBluetooth
 
 protocol BLEManagerProtocol {
     
     func startScanning()
+    
+    func searchServices(peripheral: CBPeripheral)
     
 }
